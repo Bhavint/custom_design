@@ -16,7 +16,7 @@ describe "StorePages" do
 			
 			describe "error messages" do
 				before { click_button "Create" }
-				it { should have_content('error') }
+				it { should have_selector('div.alert.alert-error', text: 'Error') }
 			end
 		end
 		
@@ -35,7 +35,7 @@ describe "StorePages" do
 			before { visit root_path }
 			
 			it "should delete a store" do
-				expect { click_link "delete" }.to change(Store, :count).by(-1)
+				expect { click_button "Delete" }.to change(Store, :count).by(-1)
 			end
 		end
 	end

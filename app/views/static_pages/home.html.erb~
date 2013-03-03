@@ -1,8 +1,15 @@
-<div class="centre hero-unit">
-<h1>Sample App</h1>
-<h2>
-	Just a Basic Home page
-</h2>
-	<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<div class="center hero-unit" style="opacity:0.65;" >
+  <h1>Welcome to the FACO^</h1>
 
+  <h2>
+    This is the home page for the
+    <a href="http://anchanto.com/faco.html">Fashion Commerce</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-danger btn-faco" %>
+  
+</div>
+<div style="text-align: center;">
+<a href="http://anchanto.com/"><img src="faco.png"></img></a>
+</div>

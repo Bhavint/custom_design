@@ -1,17 +1,17 @@
 <%= form_for (@store), :html => { :multipart => true } do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
-		<br>Market Domain<%= f.text_field :domain, placeholder: "Specific Market Domain" %>
-		<br>Contact Number<%= f.text_field :phone_number, placeholder: "Contact Number" %>
-		<br>Official Email_id<%= f.text_field :email, placeholder: "Official firm email" %>
-		<br>Country of Operations<%= f.text_field :country, placeholder: "Country of operations" %>
-		<br>Expected Customer Count<%= f.number_field :custcount, placeholder: "Expected No of customers" %>
-		<br>Short Description<%= f.text_area :description, placeholder: "Short Description" %>
-		<br>Franchise Name<%= f.text_field :name, placeholder: "Store Name" %>
-		<br>Twitter Handle<%= f.text_field :twitterh, placeholder: "Twitter Handle" %>
-		<br>Facebook Page<%= f.text_field :fbid, placeholder: "Facebook Page" %>
-		<br>Pinterest Handle<%= f.text_field :pinit, placeholder: "Pinterest Handle" %>
-		<br>Company Logo<%= f.file_field :pic, placeholder: "Company Logo" %>
+		<br>Market Domain :<%= f.text_field :domain, placeholder: "Specific Market Domain" %>
+		<br>Contact Number :<%= f.text_field :phone_number, placeholder: "Contact Number" %>
+		<br>Official Email_id :<%= f.text_field :email, placeholder: "Official firm email" %>
+		<br>Country of Operations :<%= f.text_field :country, placeholder: "Country of operations" %>
+		<br>Expected Customer Count :<%= f.number_field :custcount, placeholder: "Expected No of customers" %>
+		<br>Short Description :<%= f.text_area :description, placeholder: "Short Description" %>
+		<br>Franchise Name :<%= f.text_field :name, placeholder: "Store Name" %>
+		<br>Twitter Handle :<%= f.text_field :twitterh, placeholder: "Twitter Handle" %>
+		<br>Facebook Page :<%= f.text_field :fbid, placeholder: "Facebook Page" %>
+		<br>Pinterest Handle :<%= f.text_field :pinit, placeholder: "Pinterest Handle" %>
+		<br>Company Logo : <%= f.file_field :pic, placeholder: "Company Logo" %>
 	</div>
-	<%= f.submit "Create", class: "btn btn-large btn-primary" %>
+	<%= f.submit "Create", class: "btn btn-large btn-primary btn-faco" %>
 <% end %>

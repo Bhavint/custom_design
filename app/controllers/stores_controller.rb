@@ -10,16 +10,17 @@ class StoresController < ApplicationController
   	@store = current_user.stores.build(params[:store])
   	if @store.save
   		
-  		flash[:success] = "Store Created"
+  		flash.now[:success] = "Store Created"
   		redirect_to current_user
   	else
+  	  flash.now[:error] = 'Error in creating store'
   		render 'static_pages/home'
   	end
   end
 
   def destroy
   	Store.find(params[:id]).destroy
-  	flash[:success] = "Store Deleted"
+  	flash.now[:success] = "Store Deleted"
   	if current_user.admin?
   		redirect_to users_url
   	else

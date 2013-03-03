@@ -1,16 +1,33 @@
-<li>
-	<span class = "name"><%= store.name %></span>
-	<span class = "timestamp">
-		Created <%= time_ago_in_words(store.created_at) %> ago.
-	
-	<% if current_user?(store.user) || current_user.admin?%>
-		<%=link_to "delete", store, method: :delete, data: { confirm: "Are You Sure?" }, title: store.name, class: "btn" %>
-	<% end %>
-	</span>
-	<br>Twitter handle : <%= store.twitterh %>
-	<br>Facebook link : <%= store.fbid %>
-	<br>Pinterest link : <%= store.pinit %>
-	<br>Estimated Trafic "<%= store.custcount %>" Customers
-	<br><%= image_tag store.pic.url(:thumb) %>
-</li>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <div class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-target='<%= "#"+store.name %>'>
+        <span class = "name"><%= store.name %></span>
+	      <span class = "timestamp">
+		      Created <%= time_ago_in_words(store.created_at) %> ago.	
+	        <% if current_user?(store.user) || current_user.admin?%>	
+  					<%= link_to "Delete", store, method: :delete, data: { confirm: "Are You Sure?" }, title: store.name, class: "btn btn-primary btn-faco btn-default", style: "float: right; margin-left: 10px;" %>
+  					<%= link_to " Edit ", "#", data: { confirm: "Are You Sure?" }, title: store.name, class: "btn btn-primary btn-faco btn-default", style: "float: right; padding-left: 23px; padding-right: 23px;" %>
+					<% end %>
+					<br><br>
+				</span>
+      </div>
+    </div>
+    <div class="accordion-body collapse" id='<%= store.name %>'>
+      <div class="accordion-inner">
+        <span style="float: left;">
+          <p>
+                <u>Twitter handle</u> : <I><%= store.twitterh %></I>
+	          <br><u>Facebook link</u> : <I><%= store.fbid %></I>
+						<br><u>Pinterest link</u> : <I><%= store.pinit %></I>
+						<br>Estimated Trafic"<%= store.custcount %>" Customers
+					</p>
+				</span>
+				<span style="float: right;">
+						<br><%= image_tag store.pic.url(:thumb), alt: "Icon Missing" %>
+				</span>
+      </div>
+    </div>
+  </div>
+</div>
 

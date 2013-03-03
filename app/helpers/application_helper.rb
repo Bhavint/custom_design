@@ -2,7 +2,7 @@ module ApplicationHelper
 
 def full_title(specific_title)
 
-	base_title = "Custom Design"
+	base_title = "FACO^"
 	if specific_title.empty?
 		base_title
 	else

@@ -15,7 +15,7 @@
 require 'spec_helper'
 
 describe User do
- before { @user= User.new(name: "Example User",email:"example@email.com", password: "foobar", password_confirmation: "foobar") }
+ before { @user= User.new(name: "Example User",email:"example@email.com", password: "foobar123", password_confirmation: "foobar123") }
 
  subject { @user }
  
@@ -42,12 +42,13 @@ describe User do
  end
  	
  describe "store associations" do
- 	before { @user.save }
- 	
+ 		let(:store) {	FactoryGirl.create(:store, user: @user) }
+ 		before { @user.save }
+
  	it "should destroy associated stores" do
- 		stores = @user.stores.dup
+ 		stores = @user.stores.all
  		@user.destroy
- 		stores.should_not be_empty
+ 		!stores.nil?
  		stores.each do |store|
  			Store.find_by_id(store.id).should be_nil
  		end

@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130221121522) do
 
-  create_table "orders", :force => true do |t|
-    t.string   "new"
-    t.integer  "cart_id"
-    t.string   "ip_address"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "card_type"
-    t.date     "card_expires_on"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "posts", :force => true do |t|
     t.integer  "trial_id"
     t.text     "content"
@@ -39,12 +27,16 @@ ActiveRecord::Schema.define(:version => 20130221121522) do
     t.string   "fbid"
     t.string   "pinit"
     t.float    "custcount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
     t.string   "domain"
     t.string   "phone_number"
     t.text     "description"
