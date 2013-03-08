@@ -6,16 +6,16 @@ describe "Static Pages" do
   describe "Help page" do
  	before {visit help_path}
  	
-    it { should have_selector('h2', text: 'Did you try first?') }
+    it { should have_selector('h1', text: 'Help') }
     it { should have_selector('title', :text => '|Help') }
   end
   
   describe "Home Page" do
   before {visit root_path}
   
-    it { should have_selector('h1', :text => 'Custom Design') }
+    it { should have_selector('h1', :text => 'Welcome to the FACO^') }
     it { should_not have_selector('title', :text => '|Home') }    
-    it { should have_selector('title', :text => "Custom Design")}
+    it { should have_selector('title', :text => "FACO^")}
   end
   
   describe "About page" do

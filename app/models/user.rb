@@ -11,20 +11,19 @@
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
 #
-
-
-
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :phone_number, :organization
-  has_many :stores, dependent: :destroy
-  has_secure_password
+   has_secure_password
+   has_many :stores, dependent: :destroy
 	before_save { |user| user.email = email.downcase }
 	before_save :create_remember_token
 	
   validates :name, presence: true, length: {maximum: 50}
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  #validates :st_name, length: {maximum: 50} #, uniqueness:true, presence:true
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  		    uniqueness: { case_sensitive: false }
+  		    
   #validates :twitterh, uniqueness:true
   #validates :fblink, uniqueness:true
   #validates :pinit, uniqueness:true

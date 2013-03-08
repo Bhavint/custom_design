@@ -55,7 +55,7 @@ describe "Authentication" do
   describe "authorization" do
   	
   	describe "as non-admin user" do
-  		let(:user) { FactoryGirl.create(:user) }
+  		let(:user) { FactoryGirl.create(:admin) }
   		let(:non_admin) { FactoryGirl.create(:user) }
   		
   		before { sign_in non_admin }
@@ -78,7 +78,7 @@ describe "Authentication" do
   			
   			describe "after signing in" do
   				it "should render the desired protected page" do
-  					page.should have_selector('title', text: "Edit User")
+  					page.should have_selector('title', text: "Edit user")
   				end
   			end
   		end

@@ -4,26 +4,33 @@
 		<section>
 			<h1>
 				<%= gravatar_for @user %>
-				<%= @user.name %>
+				<span class="name"><%= @user.name %></span>
 			</h1>
+			<small>
+			  <%= @user.email %>
+		  </small>
+		</section>
+		<section>
+			<nav>
+				<div>
+			   		<p class="center">..Create new Store by clicking below..</p>
+						<li><%= link_to "Create Store", create_path, class: "btn btn-large btn-block btn-inverse" %></li>
+			  </div>
+			</nav>
 		</section>
 	</aside>
-	
 	<div class="span8">
 		<% if @user.stores.any? %>
 			<h3> Stores (<%= @user.stores.count %>)</h3>
-			<ol class="stores">
-				<%= render @stores %>
-			</ol>
+			<div class="cop-store" style="opacity: 0.6;">
+				<ol class="stores">
+					<%= render @stores %>
+				</ol>
+			</div>
 		<% end %>
 	</div>
 </div>
 
-<%= @user.email %>
 
-<nav>
-	<ul>
-		<li><%= link_to "View Stores", '#' %> </li>
-		<li><%= link_to "Edit Stores", '#' %> </li>
-		<li><%= link_to "Create Store", create_path %> </li>
-	</ul>
+
+

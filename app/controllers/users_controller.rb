@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+	before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:show, :edit, :update]
   before_filter :admin_user,     only: [:destroy]
   def new
@@ -35,8 +35,7 @@ class UsersController < ApplicationController
   	@stores = @user.stores
   end
   def update
-  	#@user = User.find(params[:id])
-  	if @user.update_attributes(params[:user])
+  	 	if @user.update_attributes(params[:user])
   		flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
@@ -47,10 +46,14 @@ class UsersController < ApplicationController
   
   private
   	def correct_user
+  	    if signed_in?
   		if !current_user.admin?
   			@user = User.find(params[:id])
   			redirect_to(root_path) unless current_user?(@user)
   		end
+              else
+               redirect_to signin_path
+              end
   	end
   	
   	def admin_user

@@ -1,8 +1,11 @@
-<li>
+<ol>
   <%= gravatar_for user %>
-  <%= link_to user.name, user %>
+  <%= link_to user.name, user, style: "font-size: 1.4em;" %>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
-</li>
+  <section class="pull-right">
+  <%= link_to "View Stores", '#' %>  |  <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>  
+    </section>
+    <br><small><%= link_to "view my profile", "#" %></small>
+	<% end %>
+</ol>

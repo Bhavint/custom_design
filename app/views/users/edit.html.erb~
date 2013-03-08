@@ -12,6 +12,12 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
+			<%= f.label :phone_Number %>
+      <%= f.text_field :phone_number %>
+      
+      <%= f.label :organization %>
+      <%= f.text_field :organization %>
+      
       <%= f.label :password %>
       <%= f.password_field :password %>
 

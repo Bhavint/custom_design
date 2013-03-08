@@ -1,4 +1,6 @@
 CustomDesign::Application.routes.draw do
+  resources :orders
+
   root to: 'static_pages#home'
 	match '/', 					to: 'static_pages#home'
   match '/help',			to:	'static_pages#help'
@@ -13,7 +15,7 @@ CustomDesign::Application.routes.draw do
   #match "/static_pages/contactus" => "static_pages#contactus", :via => :get
 
 
-	match '/tocreate',			to: 'stores#tocreate'
+	match '/create',			to: 'stores#new'
   resources :posts
 	resources :users
   resources :trials

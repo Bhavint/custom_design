@@ -5,7 +5,7 @@
 				<%= render 'shared/user_info' %>
 			</section>
 		</aside>
-		<div class="span6">
+		<div class="span8">
 			<%= render 'shared/store_form' %>
 		</div>
 	</div>

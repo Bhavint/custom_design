@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :store do
-    name "Sample Store"
+    name "MyString"
     user_id 1
     twitterh "MyString"
     fbid "MyString"

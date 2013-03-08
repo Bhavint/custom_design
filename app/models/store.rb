@@ -25,6 +25,8 @@
 class Store < ActiveRecord::Base
 	attr_accessible :custcount, :fbid, :name, :pinit, :twitterh, :pic, :domain, :country, :description, :phone_number, :email
 	validates :user_id, presence: true
+	validates :name, presence: true
+	
 	belongs_to :user
 	
 	has_attached_file :pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }
